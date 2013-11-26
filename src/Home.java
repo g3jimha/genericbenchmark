@@ -4,9 +4,11 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Text;
 
 
 public class Home {
+	private static Text text;
 
 	/**
 	 * Launch the application.
@@ -22,12 +24,14 @@ public class Home {
 		btnStart.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Benchmark bm = new Benchmark();
-				bm.install();
+				install();
 			}
 		});
 		btnStart.setBounds(10, 10, 414, 25);
 		btnStart.setText("Start");
+		
+		text = new Text(shell, SWT.BORDER | SWT.READ_ONLY);
+		text.setBounds(10, 45, 414, 147);
 
 		shell.open();
 		shell.layout();
@@ -36,5 +40,11 @@ public class Home {
 				display.sleep();
 			}
 		}
+	}
+	
+	private static boolean install(){
+		text.setText("Checking to see which benchmarks need installed and installing them..");
+		
+		return true;
 	}
 }

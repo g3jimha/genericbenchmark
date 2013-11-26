@@ -6,11 +6,16 @@ public class Iozone {
 	}
 	
 	public boolean install(){
-		System.out.println("installing Iozone..");
+		
 		return true;
 	}
+
 	public void run(){
 		
 	}
 
+	public void checkVersion(){
+		RunExecution re = new RunExecution();
+		System.out.println(re.run("iozone -v"));
+	}
 }
